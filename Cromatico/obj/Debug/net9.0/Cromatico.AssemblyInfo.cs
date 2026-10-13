@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cromatico")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+870f5d4f5565c9b59edbb6ded67c8ce2ebebea0f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9695e5e6db5dd643b4d89535659ce54a2f9bf4b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cromatico")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cromatico")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

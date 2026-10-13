@@ -59,7 +59,7 @@ public class EvaluadorDiscriminacionIhihara
      int erroresVerdeDeutan,int erroresOtros)
     {
         TipoDeficiencia discriminacion=TipoDeficiencia.Indeterminado;
-        const int umbral=3;
+        const int umbral=2;
         
         if(aciertos >= umbral && aciertos > erroresRojoProtan)
         {
