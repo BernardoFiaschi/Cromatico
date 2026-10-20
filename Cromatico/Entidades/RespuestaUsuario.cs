@@ -1,6 +1,8 @@
 public class RespuestaUsuario
 {
-    public RespuestaUsuario(){}
+    public RespuestaUsuario()
+    {
+    }
     private int NumeroLamina;
     private string Respuesta;
 

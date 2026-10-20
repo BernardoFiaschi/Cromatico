@@ -12,7 +12,8 @@ public class EvaluadorSeveridad
         double porcentaje=0;
         List<LaminaSeveridad> laminas = new List<LaminaSeveridad>();
         ResultadoTestSeveridad resultado =new ResultadoTestSeveridad();
-
+        
+        try{
         if(respuestas == null || respuestas.Count == 0)
         {
             resultado.severidad=NivelSeveridad.Indeterminada;
@@ -60,6 +61,12 @@ public class EvaluadorSeveridad
         else resultado.severidad =NivelSeveridad.Severa;
 
         return resultado;
+        }catch(Exception e)
+        {
+         GuardarExcepcion.registrarExcepcion(e,"EvaluadorSeveridad");
+          resultado.severidad=NivelSeveridad.Indeterminada;
+            return resultado; 
+        }
     }
 }
     

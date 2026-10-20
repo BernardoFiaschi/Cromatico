@@ -9,7 +9,9 @@ public class EvaluadorIshihara{
         int ErroresMonocromatica=0;
         int ErroresOtros=0;
         TipoDeficiencia deficiencia = TipoDeficiencia.Ninguna;
-        
+
+        try{
+
         if(respuestas==null || respuestas.Count == 0)
         {
             return new ResultadoTest 
@@ -57,6 +59,15 @@ public class EvaluadorIshihara{
         resultadoFinal.confianza= (double)mayor / respuestas.Count;
         
         return resultadoFinal;
+        }catch(Exception e)
+        {
+         GuardarExcepcion.registrarExcepcion(e,"EvaluadorIshihara");
+          return new ResultadoTest 
+            {
+                deficiencia=TipoDeficiencia.Indeterminado,
+                confianza=0
+            };  
+        }
 
     }
 

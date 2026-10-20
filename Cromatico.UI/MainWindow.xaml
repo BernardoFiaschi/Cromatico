@@ -19,7 +19,7 @@
                 HorizontalAlignment="Center"/>
 
             <TextBlock
-                Text="Sistema de detección de deficiencias visuales"
+                Text="Este programa NO diagnostica, ayuda a la detección de deficiencias visuales. Ante dudas consultar con su medico."
                 Margin="0,0,0,20"
                 HorizontalAlignment="Center"/>
 
@@ -27,7 +27,8 @@
                 Name="btnIniciar"
                 Width="200"
                 Height="40"
-                Content="Iniciar Test"/>
+                Content="Iniciar Test"
+                Click="BtnIniciar_Click"/>
 
         </StackPanel>
 

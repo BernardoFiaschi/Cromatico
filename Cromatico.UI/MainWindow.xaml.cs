@@ -13,11 +13,19 @@ namespace Cromatico.UI;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
+/// Interaction logic for TestWindow.xaml
 /// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
     {
         InitializeComponent();
+    }
+    
+    private void BtnIniciar_Click(object sender, RoutedEventArgs e)
+    {
+        TestWindow ventana = new TestWindow();
+        ventana.Show();
+        this.Close();
     }
 }

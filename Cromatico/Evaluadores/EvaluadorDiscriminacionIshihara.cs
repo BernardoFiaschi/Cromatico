@@ -12,7 +12,9 @@ public class EvaluadorDiscriminacionIhihara
 
         var laminasDiscriminacion=LaminasDiscriminacionIshihara.ObtenerLaminasDiscriminacion();
 
-        if(respuestas==null || respuestas.Count == 0)
+        try
+        {
+            if(respuestas==null || respuestas.Count == 0)
         {
             return new ResultadoTest
             {
@@ -53,6 +55,18 @@ public class EvaluadorDiscriminacionIhihara
         
 
         return resultadoDiscriminatorioFinal;
+
+        }catch(Exception e)
+        {
+         GuardarExcepcion.registrarExcepcion(e,"EvaluadorDiscriminacionIshihara");
+         return new ResultadoTest
+            {
+                deficiencia=TipoDeficiencia.Indeterminado,
+                confianza=0
+            };   
+        }
+
+        
     }
 
     public TipoDeficiencia evaluadorDiscriminacion(int aciertos,int erroresRojoProtan,

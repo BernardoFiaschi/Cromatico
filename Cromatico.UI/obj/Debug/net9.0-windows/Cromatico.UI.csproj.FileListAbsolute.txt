@@ -9,7 +9,9 @@ C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Deb
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Debug\net9.0-windows\Cromatico.dll
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Debug\net9.0-windows\Cromatico.pdb
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\Cromatico.UI.csproj.AssemblyReference.cache
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\TestWindow.baml
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\TestWindow.g.cs
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\App.g.cs
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\Cromatico.UI_MarkupCompile.cache
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\obj\Debug\net9.0-windows\Cromatico.UI_MarkupCompile.lref
