@@ -14,7 +14,9 @@
 
             <Image
                 Name="imgLamina"
+                Width="500"
                 Height="350"
+                Stretch="Uniform"
                 Margin="0,20,0,20"/>
                     
             <TextBlock

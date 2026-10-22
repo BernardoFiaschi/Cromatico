@@ -4,6 +4,12 @@
     <ProjectReference Include="..\Cromatico\Cromatico.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="LaminasIshihara\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>

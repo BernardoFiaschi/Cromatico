@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Media.Imaging;
 namespace Cromatico.UI;
 
 public partial class TestWindow : Window
@@ -17,8 +18,25 @@ public partial class TestWindow : Window
     }
     private void MostrarLamina()
     {
+        try
+        {
         LaminaIshihara lamina = laminas[indiceActual];
         txtNumeroLamina.Text=$"Lámina {lamina.numero}";
+        string rutaCompleta =
+        System.IO.Path.Combine(
+        AppDomain.CurrentDomain.BaseDirectory,
+        lamina.imagen);
+
+        imgLamina.Source =
+        new BitmapImage(
+        new Uri(rutaCompleta, UriKind.Absolute));
+      
+        
+        }catch(Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+        
     }
     private void BtnSiguiente_Click(object sender,RoutedEventArgs e)
     {
