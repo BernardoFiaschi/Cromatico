@@ -29,7 +29,7 @@ public static class LaminasDeteccionIshihara
         LaminaIshihara lamina4 = new LaminaIshihara();
         lamina4.numero=4;
         lamina4.tipo=tipoLaminaIshihara.Deteccion;
-        lamina4.imagen="LaminaIshihara/Lamina4.png";
+        lamina4.imagen="LaminasIshihara/Lamina4.png";
         lamina4.respuestaCorrecta="29";
         lamina4.respuestaDaltonica="70";
         lamina4.respuestaMonocromatica="";
@@ -42,7 +42,7 @@ public static class LaminasDeteccionIshihara
         lamina5.respuestaDaltonica="35";
         lamina5.respuestaMonocromatica="";
         laminas.Add(lamina5);
-        LaminaIshihara lamina6 = new LaminaIshihara();
+        /*LaminaIshihara lamina6 = new LaminaIshihara();
         lamina6.numero=6;
         lamina6.tipo=tipoLaminaIshihara.Deteccion;
         lamina6.imagen="LaminasIshihara/Lamina6.png";
@@ -162,7 +162,7 @@ public static class LaminasDeteccionIshihara
         lamina21.respuestaDaltonica="73";
         lamina21.respuestaMonocromatica="";
         laminas.Add(lamina21);
-
+*/
         return laminas;
     }
 }

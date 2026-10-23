@@ -56,7 +56,7 @@ public class EvaluadorIshihara{
         resultadoFinal.aciertos = Aciertos;
         resultadoFinal.errores = ErroresDaltonicos + ErroresMonocromatica + ErroresOtros;
         int mayor =Math.Max(Aciertos,Math.Max(ErroresDaltonicos,ErroresMonocromatica));
-        resultadoFinal.confianza= (double)mayor / respuestas.Count;
+        resultadoFinal.confianza= (double)(mayor / respuestas.Count)*100;
         
         return resultadoFinal;
         }catch(Exception e)

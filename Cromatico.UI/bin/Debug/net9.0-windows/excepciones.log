@@ -1,0 +1,42 @@
+[22/10/2026 18:03:35]
+Contexto: Error cargando Indice invalido
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.MostrarLamina() in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 24
+
+[22/10/2026 21:14:37]
+Contexto: Error cargando Lamina22.png
+System.IO.FileNotFoundException: NO se encontro la imagen
+File name: 'C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Debug\net9.0-windows\Lamina22.png'
+   at Cromatico.UI.TestWindow.MostrarLamina() in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 37
+
+[22/10/2026 21:15:38]
+Contexto: Error cargando Lamina23.png
+System.IO.FileNotFoundException: NO se encontro la imagen
+File name: 'C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Debug\net9.0-windows\Lamina23.png'
+   at Cromatico.UI.TestWindow.MostrarLamina() in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 37
+
+[22/10/2026 21:16:00]
+Contexto: Error cargando Lamina24.png
+System.IO.FileNotFoundException: NO se encontro la imagen
+File name: 'C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Debug\net9.0-windows\Lamina24.png'
+   at Cromatico.UI.TestWindow.MostrarLamina() in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 37
+
+[22/10/2026 21:16:56]
+Contexto: Error cargando Lamina25.png
+System.IO.FileNotFoundException: NO se encontro la imagen
+File name: 'C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\bin\Debug\net9.0-windows\Lamina25.png'
+   at Cromatico.UI.TestWindow.MostrarLamina() in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 37
+
+[22/10/2026 21:17:37]
+Contexto: Error al guardar respuesta numero: 4
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
+
+[22/10/2026 21:17:39]
+Contexto: Error al guardar respuesta numero: 4
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
+

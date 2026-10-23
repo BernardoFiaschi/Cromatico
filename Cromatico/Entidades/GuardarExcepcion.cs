@@ -6,7 +6,12 @@ public static class GuardarExcepcion
         $"[{DateTime.Now}]\n" +
         $"Contexto: {contexto}\n" +
         $"{e}\n\n";
-
-    File.AppendAllText(rutaException, mensaje);
+        try
+        {
+            File.AppendAllText(rutaException, mensaje);
+        }catch
+        {
+        }
+    
     }
 }

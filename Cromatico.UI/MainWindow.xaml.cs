@@ -24,7 +24,9 @@ public partial class MainWindow : Window
     
     private void BtnIniciar_Click(object sender, RoutedEventArgs e)
     {
-        TestWindow ventana = new TestWindow();
+        var laminasDeteccion=LaminasDeteccionIshihara.ObtenerLaminasDeteccion();
+        TipoTest tipo=TipoTest.evaluacion;
+        TestWindow ventana = new TestWindow(laminasDeteccion,tipo);
         ventana.Show();
         this.Close();
     }
