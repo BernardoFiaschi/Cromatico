@@ -1,0 +1,19 @@
+<Window x:Class="Cromatico.Vistas.DialogoNombre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="420" SizeToContent="Height" ResizeMode="NoResize" ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Style="{StaticResource EstiloVentana}">
+    <StackPanel Margin="26,24,26,22">
+        <TextBlock x:Name="Titulo" FontSize="18" FontWeight="SemiBold"/>
+        <TextBlock x:Name="Detalle" Style="{StaticResource Subtitulo}" Margin="0,4,0,16"/>
+        <TextBox x:Name="Caja" AutomationProperties.Name="Nombre del perfil" MaxLength="40"/>
+        <TextBlock x:Name="TextoError" Margin="0,8,0,0" Foreground="{StaticResource BrushError}"
+                   TextWrapping="Wrap" Visibility="Collapsed"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Cancelar" Style="{StaticResource BotonFantasma}" IsCancel="True"/>
+            <Button x:Name="BotonAceptar" Content="Aceptar" Style="{StaticResource BotonPrimario}"
+                    Margin="8,0,0,0" IsDefault="True" Click="AlAceptar"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
