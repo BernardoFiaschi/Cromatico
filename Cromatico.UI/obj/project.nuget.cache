@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Kjzecx3U2t8=",
+  "dgSpecHash": "AxXJE26Uni8=",
   "success": true,
   "projectFilePath": "C:\\Users\\computadora\\Desktop\\Cromatico compartido\\Cromatico\\Cromatico.UI\\Cromatico.UI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\computadora\\.nuget\\packages\\microsoft.win32.systemevents\\10.0.14\\microsoft.win32.systemevents.10.0.14.nupkg.sha512",
+    "C:\\Users\\computadora\\.nuget\\packages\\system.drawing.common\\10.0.14\\system.drawing.common.10.0.14.nupkg.sha512",
     "C:\\Users\\computadora\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.20\\microsoft.netcore.app.ref.9.0.20.nupkg.sha512",
     "C:\\Users\\computadora\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.20\\microsoft.windowsdesktop.app.ref.9.0.20.nupkg.sha512",
     "C:\\Users\\computadora\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.20\\microsoft.aspnetcore.app.ref.9.0.20.nupkg.sha512",

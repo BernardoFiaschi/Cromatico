@@ -40,3 +40,27 @@ System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative
    at System.Collections.Generic.List`1.get_Item(Int32 index)
    at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
 
+[26/10/2026 22:11:36]
+Contexto: Error al guardar respuesta numero: 4
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
+
+[26/10/2026 22:11:37]
+Contexto: Error al guardar respuesta numero: 4
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
+
+[26/10/2026 22:11:37]
+Contexto: Error al guardar respuesta numero: 4
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
+
+[26/10/2026 22:11:37]
+Contexto: Error al guardar respuesta numero: 4
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Cromatico.UI.TestWindow.BtnSiguiente_Click(Object sender, RoutedEventArgs e) in C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\TestWindow.xaml.cs:line 74
+

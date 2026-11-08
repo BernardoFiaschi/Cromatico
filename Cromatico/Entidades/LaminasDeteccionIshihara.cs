@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+namespace Cromatico.Entidades;
+
 public static class LaminasDeteccionIshihara
 {
     public static List<LaminaIshihara> ObtenerLaminasDeteccion()

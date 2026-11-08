@@ -1,6 +1,8 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using Cromatico.Entidades;
+using Cromatico.Evaluadores;
 namespace Cromatico.UI;
 
 public partial class TestWindow : Window
@@ -111,10 +113,9 @@ public partial class TestWindow : Window
         ResultadoTest resultado = new ResultadoTest();
         resultado = evaluador.Evaluar(respuestas);
         MessageBox.Show($"Deficiencia: {resultado.deficiencia},"+
-        $" Aciertos: {resultado.aciertos},"+$" Errores: {resultado.errores},"+
-        $" Confianza del test: {resultado.confianza}%");
+        $" Aciertos: {resultado.aciertos},"+$" Errores: {resultado.errores}");
 
-        if(resultado.deficiencia == TipoDeficiencia.RojoVerde)
+        if(resultado.deficiencia == TipoDeficiencia.Protan)
         {
             var laminasDiscriminacion = LaminasDiscriminacionIshihara.ObtenerLaminasDiscriminacion();
             TestWindow ventanaDiscriminacion = new TestWindow(laminasDiscriminacion,TipoTest.discriminacion);
@@ -135,13 +136,13 @@ public partial class TestWindow : Window
         MessageBox.Show($"Deficiencia: {resultado.deficiencia},"+
         $" Aciertos: {resultado.aciertos},"+$" Errores: {resultado.errores},"+
         $" Confianza del test: {resultado.confianza}%");
-        if(resultado.deficiencia == TipoDeficiencia.RojoProtan)
+        if(resultado.deficiencia == TipoDeficiencia.Protan)
         {
             MessageBox.Show("se deberia ejecutar severidad con laminas protan");
             this.Close();
             return;
 
-        }else if(resultado.deficiencia == TipoDeficiencia.VerdeDeutan)
+        }else if(resultado.deficiencia == TipoDeficiencia.Deutan)
         {
             MessageBox.Show("se deberia ejecutar severidad con laminas deutan");
             this.Close();

@@ -1,3 +1,4 @@
+namespace Cromatico.Entidades;
 public static class LaminasDiscriminacionIshihara
 {
     public static List<LaminaIshihara> ObtenerLaminasDiscriminacion()

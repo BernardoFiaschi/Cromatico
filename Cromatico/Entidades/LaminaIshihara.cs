@@ -1,3 +1,4 @@
+namespace Cromatico.Entidades;
 public class LaminaIshihara
 {
     public LaminaIshihara(){}

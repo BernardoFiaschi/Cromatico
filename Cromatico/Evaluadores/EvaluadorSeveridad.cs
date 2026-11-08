@@ -1,30 +1,31 @@
-using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
+using Cromatico.Entidades;
+namespace Cromatico.Evaluadores;
 
 public class EvaluadorSeveridad
 {
     public EvaluadorSeveridad(){}
     public ResultadoTestSeveridad evaluarSeveridad(TipoDeficiencia deficiencia, 
-    List<RespuestaUsuarioSeveridad> respuestas)
+    List<RespuestaUsuario> respuestas)
     {
         int puntajeObtenido=0;
         int puntajeMaximo=0;
         double porcentaje=0;
         List<LaminaSeveridad> laminas = new List<LaminaSeveridad>();
         ResultadoTestSeveridad resultado =new ResultadoTestSeveridad();
-        
         try{
+            
+        
         if(respuestas == null || respuestas.Count == 0)
         {
             resultado.severidad=NivelSeveridad.Indeterminada;
             return resultado;
         }
 
-        if(deficiencia == TipoDeficiencia.RojoProtan)
+        if(deficiencia == TipoDeficiencia.Protan)
         {
             laminas=LaminasSeveridadRojoProtan.obtenerLaminasSeveridadProtan();
         }
-        else if(deficiencia == TipoDeficiencia.VerdeDeutan)
+        else if(deficiencia == TipoDeficiencia.Deutan)
         {
             laminas=LaminasSeveridadVerdeDeutan.obtenerLaminasVerdeDeutan();
         }
@@ -44,7 +45,12 @@ public class EvaluadorSeveridad
                 }
             }
         }
-        
+            if (puntajeMaximo == 0)
+            {
+                resultado.severidad = NivelSeveridad.Indeterminada;
+                return resultado;
+
+            }
         porcentaje =(double)puntajeObtenido/puntajeMaximo;
         resultado.porcentaje =porcentaje;
         resultado.puntajeObtenido =puntajeObtenido;

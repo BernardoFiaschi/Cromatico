@@ -1,3 +1,5 @@
+namespace Cromatico.Entidades;
+
 public class ResultadoTest
 {
     public ResultadoTest(){}

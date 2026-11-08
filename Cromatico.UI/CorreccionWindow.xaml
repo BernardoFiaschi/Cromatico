@@ -1,0 +1,100 @@
+<Window x:Class="Cromatico.UI.CorreccionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Vista Previa de Correccion"
+        Height="600"
+        Width="800">
+
+    <Grid>
+        <StackPanel Margin="20">
+
+            <TextBlock
+                Text="Seleccione el tipo de deficiencia y ajuste los parametros"/>
+
+            <ComboBox
+                x:Name="cmbDeficiencia"
+                SelectionChanged="cmbDeficiencia_SelectionChanged">
+
+                <ComboBoxItem Content="RojoProtan"/>
+                <ComboBoxItem Content="VerdeDeutan"/>
+                <ComboBoxItem Content="AzulAmarilloTritan"/>
+
+            </ComboBox>
+
+            <Slider
+                x:Name="sliderSeveridad"
+                Minimum="0"
+                Maximum="1"
+                Value="0.75"
+                TickFrequency="0.1"
+                ValueChanged="Slider_ValueChanged"/>
+                <TextBlock x:Name="txtSeveridad"/>
+
+            <Slider
+                x:Name="sliderIntensidad"
+                Minimum="0"
+                Maximum="1"
+                Value="1"
+                TickFrequency="0.1"
+                ValueChanged="Slider_ValueChanged"/>
+                <TextBlock x:Name="txtIntensidad"/>
+
+            <Grid Margin="0,20,0,0">
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+
+    <StackPanel Grid.Column="0">
+        <TextBlock
+            Text="Original"
+            HorizontalAlignment="Center"/>
+
+        <Image
+            x:Name="imgOriginal"
+            Height="300"
+            Stretch="Uniform"/>
+    </StackPanel>
+
+    <StackPanel Grid.Column="2">
+        <TextBlock
+            Text="Corregida"
+            HorizontalAlignment="Center"/>
+
+        <Image
+            x:Name="imgCorregida"
+            Height="300"
+            Stretch="Uniform"/>
+    </StackPanel>
+
+    <StackPanel Grid.Column="1">
+        <TextBlock
+            Text="Original Simulada"
+            HorizontalAlignment="Center"/>
+
+        <Image
+            x:Name="imgCorregidaSimulada"
+            Height="300"
+            Stretch="Uniform"/>
+    </StackPanel>
+
+    <StackPanel Grid.Column="3">
+        <TextBlock
+            Text="Corregida Simulada"
+            HorizontalAlignment="Center"/>
+
+        <Image
+            x:Name="imgOriginalSimulada"
+            Height="300"
+            Stretch="Uniform"/>
+    </StackPanel>
+
+</Grid>
+
+        </StackPanel>
+    </Grid>
+
+</Window>

@@ -1,3 +1,4 @@
+namespace Cromatico.Entidades;
 public static class GuardarExcepcion
 {
     private static readonly string rutaException = "excepciones.log";

@@ -1,0 +1,16 @@
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\bin\Debug\net9.0-windows\CorreccionCromatica.deps.json
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\bin\Debug\net9.0-windows\CorreccionCromatica.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\bin\Debug\net9.0-windows\CorreccionCromatica.pdb
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\bin\Debug\net9.0-windows\Cromatico.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\bin\Debug\net9.0-windows\Cromatico.pdb
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.csproj.AssemblyReference.cache
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.AssemblyInfoInputs.cache
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.AssemblyInfo.cs
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.csproj.CoreCompileInputs.cache
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.sourcelink.json
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\Correcci.691C9F7A.Up2Date
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\refint\CorreccionCromatica.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\CorreccionCromatica.pdb
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\CorreccionCromatica\obj\Debug\net9.0-windows\ref\CorreccionCromatica.dll

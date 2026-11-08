@@ -1,3 +1,5 @@
+using Cromatico.Entidades;
+namespace Cromatico.Evaluadores;
 public class EvaluadorDiscriminacionIhihara
 {
     public EvaluadorDiscriminacionIhihara(){}
@@ -8,7 +10,7 @@ public class EvaluadorDiscriminacionIhihara
         int ErroresRojoProtan=0;
         int ErroresVerdeDeutan=0;
         int ErroresOtros=0;
-        TipoDeficiencia deficiencia = TipoDeficiencia.RojoVerde;
+        TipoDeficiencia deficiencia = TipoDeficiencia.Protan;
 
         var laminasDiscriminacion=LaminasDiscriminacionIshihara.ObtenerLaminasDiscriminacion();
 
@@ -81,11 +83,11 @@ public class EvaluadorDiscriminacionIhihara
         }
         else if(erroresRojoProtan >= umbral && erroresRojoProtan > erroresVerdeDeutan)
         {
-            discriminacion=TipoDeficiencia.RojoProtan;
+            discriminacion=TipoDeficiencia.Protan;
         }
         else if(erroresVerdeDeutan >=umbral && erroresVerdeDeutan > erroresRojoProtan)
         {
-            discriminacion=TipoDeficiencia.VerdeDeutan;
+            discriminacion=TipoDeficiencia.Deutan;
         }
         else
         {

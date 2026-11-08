@@ -1,9 +1,10 @@
+namespace Cromatico.Evaluadores;
+using Cromatico.Entidades;
 public class EvaluadorIshihara{
     public EvaluadorIshihara(){}
     public ResultadoTest Evaluar(List<RespuestaUsuario> respuestas)
     {
         var laminas=LaminasDeteccionIshihara.ObtenerLaminasDeteccion();
-
         int Aciertos=0;
         int ErroresDaltonicos=0;
         int ErroresMonocromatica=0;
@@ -23,7 +24,6 @@ public class EvaluadorIshihara{
         
         foreach (var respuesta in respuestas ){
 
-            
             var lamina = laminas.FirstOrDefault(l => l.numero == respuesta.numeroLamina);
             
                 if (lamina != null)
@@ -77,13 +77,12 @@ public class EvaluadorIshihara{
         const int umbral=4;           
         TipoDeficiencia deficiencia = TipoDeficiencia.Ninguna;
 
-        if (erroresMonocromatica >=8)
+        if (erroresDaltonicos >=umbral && erroresDaltonicos > aciertos)
         {
-        deficiencia = TipoDeficiencia.Total;
+        deficiencia = TipoDeficiencia.Protan; 
         }
-        else if (erroresDaltonicos >=umbral && erroresDaltonicos > aciertos)
+        else if (erroresMonocromatica >=umbral && erroresMonocromatica > aciertos)
         {
-        deficiencia = TipoDeficiencia.RojoVerde;
         }
         else if (aciertos >=umbral && aciertos > erroresDaltonicos)
         {

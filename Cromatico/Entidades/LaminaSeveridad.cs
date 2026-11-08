@@ -1,3 +1,4 @@
+namespace Cromatico.Entidades;
 public class LaminaSeveridad
 {
     public LaminaSeveridad(){}
