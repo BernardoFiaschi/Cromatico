@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.UI\App.xaml
-5519743728
+91041894920
 
-211443297211
-212-1238756387
-CorreccionWindow.xaml;MainWindow.xaml;OverlayWindow.xaml;TestWindow.xaml;VentanaR6.xaml;
+11-2068052218
+201877030252
+Estilos\Tema.xaml;Vistas\DialogoNombre.xaml;Vistas\EditorParametros.xaml;Vistas\PaginaAjustes.xaml;Vistas\PaginaInicio.xaml;Vistas\PaginaPerfiles.xaml;Vistas\PaginaVistaPrevia.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaPrincipal.xaml;
 
 False
 

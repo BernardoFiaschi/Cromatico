@@ -1,5 +1,4 @@
 using Cromatico.Modelos;
-
 namespace Cromatico.Servicios
 {
     public sealed class ContextoApp : IDisposable
@@ -35,6 +34,11 @@ namespace Cromatico.Servicios
 
             Perfiles = new ServicioPerfiles(Almacen, Motor);
             AutoPerfil = new ServicioAutoPerfil(Almacen, Perfiles, Motor, Avisos);
+
+
+            AutoPerfil.ResolutorDeContexto = info => ServicioContextoUso.ObtenerPerfil(info,
+            Perfiles.Perfiles);
+
 
             Almacen.Guardada += () => { if (!ModoSinCuenta) _ = SubirSilenciosoAsync(); };
         }

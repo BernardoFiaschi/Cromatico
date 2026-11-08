@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Cromatico\Cromatico.csproj" />
-    <ProjectReference Include="..\CorreccionCromatica\CorreccionCromatica.csproj" />
+    <ProjectReference Include="..\Cromatico.Core\Cromatico.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

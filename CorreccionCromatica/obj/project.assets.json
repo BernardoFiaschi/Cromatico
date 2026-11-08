@@ -54,16 +54,6 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
-      },
-      "Cromatico/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/Cromatico.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Cromatico.dll": {}
-        }
       }
     }
   },
@@ -155,16 +145,10 @@
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Cromatico/1.0.0": {
-      "type": "project",
-      "path": "../Cromatico/Cromatico.csproj",
-      "msbuildProject": "../Cromatico/Cromatico.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0-windows": [
-      "Cromatico >= 1.0.0",
       "System.Drawing.Common >= 10.0.14"
     ]
   },
@@ -201,11 +185,7 @@
         "net9.0-windows": {
           "framework": "net9.0-windows7.0",
           "targetAlias": "net9.0-windows",
-          "projectReferences": {
-            "C:\\Users\\computadora\\Desktop\\Cromatico compartido\\Cromatico\\Cromatico\\Cromatico.csproj": {
-              "projectPath": "C:\\Users\\computadora\\Desktop\\Cromatico compartido\\Cromatico\\Cromatico\\Cromatico.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

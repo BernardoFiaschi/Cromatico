@@ -1,0 +1,12 @@
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.AssemblyInfoInputs.cache
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.AssemblyInfo.cs
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.csproj.CoreCompileInputs.cache
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.sourcelink.json
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\bin\Debug\net9.0\Cromatico.Core.deps.json
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\bin\Debug\net9.0\Cromatico.Core.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\bin\Debug\net9.0\Cromatico.Core.pdb
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\refint\Cromatico.Core.dll
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\Cromatico.Core.pdb
+C:\Users\computadora\Desktop\Cromatico compartido\Cromatico\Cromatico.Core\obj\Debug\net9.0\ref\Cromatico.Core.dll

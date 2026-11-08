@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Cromatico.Interop
 {
-    internal static class NativeMethods
+    public static class NativeMethods
     {
         public delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd,
             int idObject, int idChild, uint idEventThread, uint dwmsEventTime);
