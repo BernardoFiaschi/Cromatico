@@ -32,6 +32,7 @@ namespace Cromatico.Servicios
                 {
                     laminas = LaminasSeveridadDeutan.obtenerLaminasSeveridadDeutan();
                 }
+                
                 if (respuestas.Count != laminas.Count)
                 {
                     resultado.severidad = NivelSeveridad.Indeterminada;
@@ -42,7 +43,8 @@ namespace Cromatico.Servicios
                     for (int i = 0; i < laminas.Count; i++)
                     {
                         puntajeMaximo += (int)laminas[i].dificultad;
-                        if (respuestas[i].respuesta == laminas[i].respuestaCorrecta)
+                        if (string.Equals(respuestas[i].respuesta,laminas[i].respuestaCorrecta,
+                        StringComparison.OrdinalIgnoreCase))
                         {
                             puntajeObtenido += (int)laminas[i].dificultad;
                         }

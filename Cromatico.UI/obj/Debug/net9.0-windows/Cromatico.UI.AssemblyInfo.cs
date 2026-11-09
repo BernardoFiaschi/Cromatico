@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cromatico.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1855d346bb1c96ba9ffc7b25c7e3bcd276323b0b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bce32f30d4a37713ff2b536f03f40822497d073")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cromatico.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cromatico.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

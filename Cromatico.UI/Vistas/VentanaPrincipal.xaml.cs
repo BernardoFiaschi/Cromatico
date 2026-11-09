@@ -51,6 +51,7 @@ namespace Cromatico.Vistas
             };
 
             IrA(Paginas[0].Clave);
+            
         }
 
         private void ConstruirPestanas()

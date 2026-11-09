@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="CorreccionCromatica/CorreccionCromatica.csproj" />
   <Project Path="Cromatico.Core/Cromatico.Core.csproj" />
   <Project Path="Cromatico.UI/Cromatico.UI.csproj" />
 </Solution>

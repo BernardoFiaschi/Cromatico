@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Cromatico.Modelos;
 using Cromatico.Servicios;
+using Cromatico.UI.Vistas;
 
 namespace Cromatico.Vistas
 {
@@ -64,6 +65,7 @@ namespace Cromatico.Vistas
 
         private async void AlPulsarSinCuenta(object sender, RoutedEventArgs e)
         {
+            
             if (_ocupado) return;
             EstablecerOcupado(true);
             try { await EntrarAsync(_auth.UsarSinCuenta()); }
@@ -103,7 +105,9 @@ namespace Cromatico.Vistas
             var ctx = await ContextoApp.CrearAsync(acceso, _sincronizacion);
 
             var principal = new VentanaPrincipal(ctx);
+           // var principal = new VentanaEvaluacion();
             Application.Current.MainWindow = principal;
+            
             principal.Show();
             Close();
         }
