@@ -18,6 +18,12 @@ namespace Cromatico.Modelos
 
         [JsonExtensionData]
         public Dictionary<string, JsonElement>? Extras { get; set; }
+        public bool EvaluacionCompleta { get; set; }
+
+        public TipoDeficiencia TipoDetectada { get; set; }
+
+        public NivelSeveridad NivelDetectado { get; set; }
+
 
         public static readonly JsonSerializerOptions OpcionesJson = new()
         {

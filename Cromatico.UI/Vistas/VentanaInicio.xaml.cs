@@ -104,8 +104,16 @@ namespace Cromatico.Vistas
 
             var ctx = await ContextoApp.CrearAsync(acceso, _sincronizacion);
 
+            if (!ctx.Almacen.Config.EvaluacionCompleta)
+            {
+                var evaluacion = new VentanaEvaluacion();
+                Application.Current.MainWindow = evaluacion;
+                evaluacion.Show();
+                Close();
+                return;
+            }
+
             var principal = new VentanaPrincipal(ctx);
-           // var principal = new VentanaEvaluacion();
             Application.Current.MainWindow = principal;
             
             principal.Show();

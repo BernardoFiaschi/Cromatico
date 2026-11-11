@@ -4,6 +4,7 @@ using System.Windows;
 using Cromatico.Modelos;
 using Cromatico.Recursos;
 using Cromatico.Servicios;
+using Cromatico.Vistas;
 
 namespace Cromatico.UI.Vistas
 {
@@ -237,22 +238,41 @@ namespace Cromatico.UI.Vistas
         }
         private void FinalizarSeveridad()
         {
-            string debug = "";
-
-            foreach (var r in respuestas)
-            {
-                debug += r.respuesta + "\n";
-            }
-
-            txtNumeroLamina.Text = debug;
-
             EvaluadorSeveridad evaluador = new EvaluadorSeveridad();
             ResultadoTestSeveridad resultado = evaluador.evaluarSeveridad(
                     resultadoDiscriminacion!.deficiencia, respuestas);
+            var ctx = ContextoApp.Actual;
+            ctx.Almacen.Modificar(c =>
+            {
+                c.EvaluacionCompleta = true;
+                c.TipoDetectada = resultadoDiscriminacion.deficiencia;
+                c.NivelDetectado = resultado.severidad;
+                var perfil = c.BuscarPerfil(c.PerfilActivoId);
+                if (perfil != null)
+                {
+                    perfil.Tipo = resultadoDiscriminacion.deficiencia;
 
-            MessageBox.Show($"Deficiencia: {resultadoDiscriminacion.deficiencia}\n" +
-                $"Severidad: {resultado.severidad}\n" +
-                $"Porcentaje: {resultado.porcentaje:P}");
+                    perfil.Severidad = resultado.severidad
+                     switch
+                    {
+                        NivelSeveridad.Leve => 0.3,
+                        NivelSeveridad.Moderada => 0.6,
+                        NivelSeveridad.Severa => 0.9,
+                        _ => 0.6
+                    };
+                }
+            },
+    "guardar resultado del test");
+
+            var principal = new VentanaPrincipal(ContextoApp.Actual!);
+
+            Application.Current.MainWindow = principal;
+
+            principal.Show();
+
+            principal.IrA("vista");
+
+            Close();
         }
     }
 }

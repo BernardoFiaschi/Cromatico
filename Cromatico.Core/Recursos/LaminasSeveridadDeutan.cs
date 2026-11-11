@@ -12,23 +12,23 @@ namespace Cromatico.Recursos
             lamina1.respuestaCorrecta = "triangulo";
             lamina1.dificultad = PuntosDificultadLaminaSeveridad.facil;
             lamina1.tipoDeficiencia = TipoDeficiencia.Deutan;
-            lamina1.imagen = "LaminasSeveridad/LaminaDeutan1.png";
+            lamina1.imagen = "LaminasSeveridad/DeutanDifcil.png";
             laminas.Add(lamina1);
 
             LaminaSeveridad lamina2 = new LaminaSeveridad();
             lamina2.numero = 2;
-            lamina2.respuestaCorrecta = "triangulo";
+            lamina2.respuestaCorrecta = "circulo";
             lamina2.dificultad = PuntosDificultadLaminaSeveridad.facil;
             lamina2.tipoDeficiencia = TipoDeficiencia.Deutan;
-            lamina2.imagen = "LaminasSeveridad/LaminaDeutan2.png";
+            lamina2.imagen = "LaminasSeveridad/DeutanFacil.png";
             laminas.Add(lamina2);
 
             LaminaSeveridad lamina3 = new LaminaSeveridad();
             lamina3.numero = 3;
-            lamina3.respuestaCorrecta = "triangulo";
+            lamina3.respuestaCorrecta = "cuadrado";
             lamina3.dificultad = PuntosDificultadLaminaSeveridad.medio;
             lamina3.tipoDeficiencia = TipoDeficiencia.Deutan;
-            lamina3.imagen = "LaminasSeveridad/LaminaDeutan3.png";
+            lamina3.imagen = "LaminasSeveridad/DeutanMedio.png";
             laminas.Add(lamina3);
 
             LaminaSeveridad lamina4 = new LaminaSeveridad();
@@ -36,15 +36,15 @@ namespace Cromatico.Recursos
             lamina4.respuestaCorrecta = "triangulo";
             lamina4.dificultad = PuntosDificultadLaminaSeveridad.dificil;
             lamina4.tipoDeficiencia = TipoDeficiencia.Deutan;
-            lamina4.imagen = "LaminasSeveridad/LaminaDeutan4.png";
+            lamina4.imagen = "LaminasSeveridad/DeutanMuyDificil.png";
             laminas.Add(lamina4);
 
             LaminaSeveridad lamina5 = new LaminaSeveridad();
             lamina5.numero = 5;
-            lamina5.respuestaCorrecta = "triangulo";
+            lamina5.respuestaCorrecta = "circulo";
             lamina5.dificultad = PuntosDificultadLaminaSeveridad.muyDificil;
             lamina5.tipoDeficiencia = TipoDeficiencia.Deutan;
-            lamina5.imagen = "LaminasSeveridad/LaminaDeutan5.png";
+            lamina5.imagen = "LaminasSeveridad/DeutanDificil2.png";
             laminas.Add(lamina5);
 
             return laminas;
