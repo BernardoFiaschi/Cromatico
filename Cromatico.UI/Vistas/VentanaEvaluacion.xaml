@@ -1,0 +1,54 @@
+<Window
+    x:Class="Cromatico.UI.Vistas.VentanaEvaluacion"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Evaluación visual"
+    Height="700"
+    Width="900">
+
+    <StackPanel Margin="20">
+
+        <TextBlock
+            x:Name="txtNumeroLamina"
+            FontSize="22"
+            FontWeight="Bold"
+            Margin="0,0,0,20"/>
+
+        <Image
+            x:Name="imgLamina"
+            Height="400"
+            Stretch="Uniform"/>
+
+        <TextBox
+            x:Name="txtRespuesta"
+            Margin="0,20,0,20"/>
+
+        <StackPanel
+            x:Name="panelSeveridad"
+            Visibility="Collapsed"
+            Margin="0,20,0,20">
+
+            <RadioButton
+                x:Name="rbTriangulo"
+                Content="Triángulo"/>
+
+            <RadioButton
+                x:Name="rbCuadrado"
+                Content="Cuadrado"/>
+
+            <RadioButton
+                x:Name="rbCirculo"
+                Content="Círculo"/>
+
+            <RadioButton
+                x:Name="rbNada"
+                Content="Nada"/>
+        </StackPanel>
+        <Button
+            x:Name="btnSiguiente"
+            Content="Siguiente"
+            Click="BtnSiguiente_Click"/>
+
+    </StackPanel>
+
+</Window>
