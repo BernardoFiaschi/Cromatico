@@ -37,6 +37,7 @@ namespace Cromatico.Servicios
 
         private InfoProceso? _ultimaVentana;
         private string? _ultimoErrorAvisado;
+        private bool _suspendido;
 
         public ServicioAutoPerfil(ServicioConfiguracion almacen, ServicioPerfiles perfiles,
             IMotorCorreccion motor, Notificador avisos)
@@ -103,8 +104,27 @@ namespace Cromatico.Servicios
             return predeterminado;
         }
 
+        // Mientras se hace el test la pantalla tiene que verse sin corrección.
+        public void Suspender()
+        {
+            _suspendido = true;
+            var r = _motor.AplicarPerfil(new PerfilCorreccion { Nombre = "Sin corrección", Tipo = TipoDeficiencia.Ninguna });
+            if (!r.Exitoso) _avisos.Error(r.Mensaje);
+        }
+
+        public void Reanudar()
+        {
+            if (!_suspendido) return;
+            _suspendido = false;
+            Efectivo = Resolver(_ultimaVentana);
+            var r = _motor.AplicarPerfil(Efectivo.Perfil);
+            if (!r.Exitoso) _avisos.Error(r.Mensaje);
+            EfectivoCambiado?.Invoke();
+        }
+
         public void Recalcular()
         {
+            if (_suspendido) return;
             var nuevo = Resolver(_ultimaVentana);
             if (nuevo.Equivale(Efectivo)) return;
 

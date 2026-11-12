@@ -1,0 +1,145 @@
+<UserControl
+    x:Class="Cromatico.UI.Vistas.PaginaAsociaciones"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Margin="32,28,32,24" MaxWidth="900" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock
+                Text="Aplicaciones"
+                Style="{StaticResource TituloPagina}"/>
+
+            <TextBlock
+                Style="{StaticResource Subtitulo}"
+                Margin="0,4,0,18"
+                Text="Asociá un perfil a una aplicación: cuando la uses, Cromático lo aplica solo."/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Style="{StaticResource Tarjeta}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="260"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0" Grid.Column="0"
+                    Text="APLICACIÓN"
+                    Style="{StaticResource EtiquetaSeccion}"/>
+
+                <ComboBox
+                    x:Name="cbAplicaciones"
+                    Grid.Row="1" Grid.Column="0"/>
+
+                <StackPanel
+                    Grid.Row="2" Grid.Column="0"
+                    Orientation="Horizontal"
+                    Margin="0,10,0,0">
+
+                    <Button
+                        x:Name="btnActualizar"
+                        Content="Actualizar lista"
+                        Style="{StaticResource BotonFantasma}"
+                        Padding="10,6"
+                        Click="BtnActualizar_Click"/>
+
+                    <Button
+                        x:Name="btnBuscar"
+                        Content="Buscar .exe…"
+                        Style="{StaticResource BotonFantasma}"
+                        Padding="10,6"
+                        Margin="8,0,0,0"
+                        Click="BtnBuscar_Click"/>
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="0" Grid.Column="2"
+                    Text="PERFIL"
+                    Style="{StaticResource EtiquetaSeccion}"/>
+
+                <ComboBox
+                    x:Name="cbPerfiles"
+                    Grid.Row="1" Grid.Column="2"
+                    DisplayMemberPath="Nombre"/>
+
+                <Button
+                    x:Name="btnAsociar"
+                    Grid.Row="2" Grid.Column="2"
+                    Content="Asociar"
+                    Style="{StaticResource BotonPrimario}"
+                    Margin="0,10,0,0"
+                    Click="BtnAsociar_Click"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2" Margin="0,22,0,10">
+            <TextBlock
+                Text="APLICACIONES ASOCIADAS"
+                Style="{StaticResource EtiquetaSeccion}"
+                VerticalAlignment="Center"
+                Margin="0"/>
+
+            <Button
+                x:Name="btnEliminar"
+                Content="Quitar asociación"
+                HorizontalAlignment="Right"
+                Click="BtnEliminar_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <ListBox x:Name="lstAsociaciones">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock
+                                    Text="{Binding proceso}"
+                                    FontSize="16"
+                                    FontWeight="SemiBold"/>
+                                <TextBlock
+                                    Text="{Binding ruta}"
+                                    Style="{StaticResource Subtitulo}"
+                                    Margin="0,4,0,0"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="NoWrap"/>
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Column="1"
+                                Text="{Binding perfil}"
+                                VerticalAlignment="Center"
+                                Margin="16,0,0,0"
+                                Foreground="{StaticResource BrushAcentoClaro}"
+                                FontWeight="SemiBold"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <TextBlock
+                x:Name="txtSinAsociaciones"
+                Text="Todavía no hay aplicaciones asociadas. Se usa el perfil global o el del contexto de uso."
+                Style="{StaticResource Subtitulo}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,24,0,0"/>
+        </Grid>
+    </Grid>
+
+</UserControl>

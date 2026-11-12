@@ -17,6 +17,8 @@ namespace Cromatico.Vistas
             new("inicio",   "Inicio",        () => new PaginaInicio()),
             new("vista",    "Vista previa",  () => new PaginaVistaPrevia()),
             new("perfiles", "Perfiles",      () => new PaginaPerfiles()),
+            new("aplicaciones", "Aplicaciones", () => new PaginaAsociaciones()),
+            new("test",     "Test",          () => new PaginaEvaluacion()),
             new("ajustes",  "Ajustes",       () => new PaginaAjustes()),
         };
 

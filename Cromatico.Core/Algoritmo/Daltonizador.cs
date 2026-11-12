@@ -40,6 +40,7 @@ namespace Cromatico.Algoritmo
         // M = (1-t)·I + t·(I + Shift·(I - Sim)); t = intensidad, Sim = simulación a severidad dada.
         public static Matriz3 CalcularMatriz(TipoDeficiencia tipo, double severidad, double intensidad)
         {
+            if (!tipo.RequiereCorreccion()) return Matriz3.Identidad;
             intensidad = Acotar(intensidad);
             var simulada = MatrizSimulacion(tipo, severidad);
             var error = Matriz3.Identidad - simulada;

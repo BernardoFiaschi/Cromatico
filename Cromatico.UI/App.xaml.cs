@@ -1,13 +1,20 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 
-namespace Cromatico
+namespace Cromatico.UI
 {
     public partial class App : Application
     {
         public App()
         {
             DispatcherUnhandledException += AlFallarLaInterfaz;
+        }
+
+        // Al salir desde cualquier ventana, la pantalla vuelve a sus colores originales.
+        protected override void OnExit(ExitEventArgs e)
+        {
+            Servicios.ContextoApp.Actual?.Dispose();
+            base.OnExit(e);
         }
 
         private void AlFallarLaInterfaz(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -18,6 +25,6 @@ namespace Cromatico
             else MessageBox.Show("Ocurrió un error inesperado: " + e.Exception.Message, "Cromático",
                 MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+
     }
 }
-
