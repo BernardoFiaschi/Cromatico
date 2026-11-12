@@ -1,3 +1,4 @@
+using Cromatico.Datos;
 using Cromatico.Modelos;
 namespace Cromatico.Servicios
 {
@@ -46,12 +47,12 @@ namespace Cromatico.Servicios
         // Llamar desde el hilo de la interfaz.
         public static async Task<ContextoApp> CrearAsync(
             ResultadoAutenticacion acceso, IServicioSincronizacion sincronizacion,
-            IMotorCorreccion? motor = null, string? carpetaConfig = null)
+            IRepositorioConfiguracion repositorio, IMotorCorreccion? motor = null)
         {
             bool sinCuenta = acceso.ModoSinCuenta || acceso.UsuarioActual == null;
             var clave = ServicioConfiguracion.ClaveParaEmail(sinCuenta ? null : acceso.UsuarioActual!.Email);
 
-            var almacen = new ServicioConfiguracion(clave, carpetaConfig);
+            var almacen = new ServicioConfiguracion(clave, repositorio);
             var avisoCarga = almacen.Cargar();
 
             var ctx = new ContextoApp(acceso, sincronizacion, motor ?? new MotorNulo(), almacen);

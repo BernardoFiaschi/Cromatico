@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using Cromatico.Datos;
 using Cromatico.Modelos;
 using Cromatico.Validaciones;
 
@@ -7,15 +8,16 @@ namespace Cromatico.Servicios
 {
     public class ServicioAutenticacion : IServicioAutenticacion
     {
+        // Los hashes sin este prefijo son SHA-256 + sal (versión anterior) y se siguen aceptando.
         private const string PrefijoHash = "pbkdf2-sha256";
         private const int Iteraciones = 600_000;
 
-        private readonly IAlmacenamientoLocal _almacenamiento;
+        private readonly IRepositorioUsuarios _usuarios;
         private readonly IServicioSincronizacion _sincronizacion;
 
-        public ServicioAutenticacion(IAlmacenamientoLocal almacenamiento, IServicioSincronizacion sincronizacion)
+        public ServicioAutenticacion(IRepositorioUsuarios usuarios, IServicioSincronizacion sincronizacion)
         {
-            _almacenamiento = almacenamiento;
+            _usuarios = usuarios;
             _sincronizacion = sincronizacion;
         }
 
@@ -37,7 +39,7 @@ namespace Cromatico.Servicios
             var fallaRed = await ComprobarConexionAsync();
             if (fallaRed != null) return fallaRed;
 
-            var existente = await _almacenamiento.BuscarUsuarioAsync(email);
+            var existente = await _usuarios.BuscarUsuarioAsync(email);
             if (existente != null)
                 return ResultadoAutenticacion.Error("Ya existe una cuenta registrada con ese correo.", CodigoAuth.CuentaExistente);
 
@@ -50,7 +52,7 @@ namespace Cromatico.Servicios
                 FechaRegistro = DateTime.UtcNow
             };
 
-            await _almacenamiento.GuardarUsuarioAsync(usuario);
+            await _usuarios.GuardarUsuarioAsync(usuario);
 
             return ResultadoAutenticacion.Ok("Cuenta creada correctamente.", usuario);
         }
@@ -65,7 +67,7 @@ namespace Cromatico.Servicios
             var fallaRed = await ComprobarConexionAsync();
             if (fallaRed != null) return fallaRed;
 
-            var usuario = await _almacenamiento.BuscarUsuarioAsync(email);
+            var usuario = await _usuarios.BuscarUsuarioAsync(email);
             if (usuario == null)
                 return ResultadoAutenticacion.Error("No existe una cuenta registrada con ese correo.", CodigoAuth.UsuarioInexistente);
 

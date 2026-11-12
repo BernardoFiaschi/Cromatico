@@ -1,8 +1,8 @@
 using Cromatico.Modelos;
 
-namespace Cromatico.Servicios
+namespace Cromatico.Datos
 {
-    public interface IAlmacenamientoLocal
+    public interface IRepositorioUsuarios
     {
         Task<Usuario?> BuscarUsuarioAsync(string email);
         Task GuardarUsuarioAsync(Usuario usuario);

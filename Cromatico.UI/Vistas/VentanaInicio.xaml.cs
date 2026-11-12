@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Cromatico.Datos;
 using Cromatico.Modelos;
 using Cromatico.Servicios;
 using Cromatico.UI.Vistas;
@@ -12,15 +13,26 @@ namespace Cromatico.Vistas
     public partial class VentanaInicio : Window
     {
         private readonly IServicioSincronizacion _sincronizacion = new ServicioSincronizacionSimulado();
-        private readonly ServicioAutenticacion _auth;
+        private readonly BaseDatosSqlite? _db;
+        private readonly ServicioAutenticacion? _auth;
         private bool _ocupado;
 
         public VentanaInicio()
         {
             InitializeComponent();
             TemaVentana.AplicarBarraOscura(this);
-            _auth = new ServicioAutenticacion(new AlmacenamientoLocalJson(), _sincronizacion);
-            Loaded += (_, _) => CajaEmail.Focus();
+            try
+            {
+                _db = new BaseDatosSqlite();
+                _auth = new ServicioAutenticacion(new RepositorioUsuariosSqlite(_db), _sincronizacion);
+                Loaded += (_, _) => CajaEmail.Focus();
+            }
+            catch (Exception ex)
+            {
+                EstablecerOcupado(true);
+                Cursor = null;
+                MostrarMensaje(TipoAviso.Error, "Error: no se pudo abrir la base de datos de Cromático (" + ex.Message + ").");
+            }
         }
 
         private bool ModoRegistro => OpcionRegistrar.IsChecked == true;
@@ -40,7 +52,7 @@ namespace Cromatico.Vistas
 
         private async void AlPulsarPrincipal(object sender, RoutedEventArgs e)
         {
-            if (_ocupado) return;
+            if (_ocupado || _auth == null) return;
             OcultarMensaje();
             EstablecerOcupado(true);
             try
@@ -67,7 +79,7 @@ namespace Cromatico.Vistas
         private async void AlPulsarSinCuenta(object sender, RoutedEventArgs e)
         {
 
-            if (_ocupado) return;
+            if (_ocupado || _auth == null) return;
             EstablecerOcupado(true);
             try { await EntrarAsync(_auth.UsarSinCuenta()); }
             catch (Exception ex) { MostrarMensaje(TipoAviso.Error, "Error: no se pudo iniciar la sesión local (" + ex.Message + ")."); }
@@ -103,7 +115,7 @@ namespace Cromatico.Vistas
                 ? "Cargando tus perfiles locales…"
                 : "Recuperando tus perfiles y configuraciones…");
 
-            var ctx = await ContextoApp.CrearAsync(acceso, _sincronizacion, new MotorMagnificationPantalla());
+            var ctx = await ContextoApp.CrearAsync(acceso, _sincronizacion, new RepositorioConfiguracionSqlite(_db!), new MotorMagnificationPantalla());
 
             if (!ctx.Almacen.Config.EvaluacionCompleta)
             {

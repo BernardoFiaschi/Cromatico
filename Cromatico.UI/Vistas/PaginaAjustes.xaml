@@ -22,10 +22,10 @@
                 <StackPanel>
                     <TextBlock Text="Datos en este equipo" FontSize="16" FontWeight="SemiBold"/>
                     <TextBlock Style="{StaticResource Subtitulo}" Margin="0,6,0,0"
-                               Text="Perfiles, perfil activo y asociaciones se guardan en este archivo:"/>
+                               Text="Usuarios, perfiles, perfil activo, asociaciones y resultado del test se guardan en esta base de datos SQLite:"/>
                     <TextBox x:Name="CajaRuta" IsReadOnly="True" Margin="0,8,0,0" AutomationProperties.Name="Ubicación de los datos"/>
                     <TextBlock Style="{StaticResource Subtitulo}" Margin="0,10,0,0" FontSize="12"
-                               Text="Si el archivo está dañado, Cromático lo conserva como copia (.danado.bak) y arranca con los perfiles predefinidos."/>
+                               Text="Si los datos guardados están dañados, Cromático arranca con los perfiles predefinidos y lo avisa."/>
                 </StackPanel>
             </Border>
 
