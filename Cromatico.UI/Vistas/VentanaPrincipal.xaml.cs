@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Cromatico.Servicios;
+using Cromatico.UI.Vistas;
 
 namespace Cromatico.Vistas
 {

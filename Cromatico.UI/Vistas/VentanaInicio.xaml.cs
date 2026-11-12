@@ -5,6 +5,7 @@ using System.Windows.Media;
 using Cromatico.Modelos;
 using Cromatico.Servicios;
 using Cromatico.UI.Vistas;
+using Cromatico.Interop;
 
 namespace Cromatico.Vistas
 {
@@ -65,7 +66,7 @@ namespace Cromatico.Vistas
 
         private async void AlPulsarSinCuenta(object sender, RoutedEventArgs e)
         {
-            
+
             if (_ocupado) return;
             EstablecerOcupado(true);
             try { await EntrarAsync(_auth.UsarSinCuenta()); }
@@ -102,7 +103,7 @@ namespace Cromatico.Vistas
                 ? "Cargando tus perfiles locales…"
                 : "Recuperando tus perfiles y configuraciones…");
 
-            var ctx = await ContextoApp.CrearAsync(acceso, _sincronizacion);
+            var ctx = await ContextoApp.CrearAsync(acceso, _sincronizacion, new MotorMagnificationPantalla());
 
             if (!ctx.Almacen.Config.EvaluacionCompleta)
             {
@@ -115,7 +116,7 @@ namespace Cromatico.Vistas
 
             var principal = new VentanaPrincipal(ctx);
             Application.Current.MainWindow = principal;
-            
+
             principal.Show();
             Close();
         }
