@@ -1,28 +1,25 @@
-using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.Json;
+using Cromatico.Datos;
 using Cromatico.Modelos;
 
 namespace Cromatico.Servicios
 {
     public class ServicioConfiguracion
     {
-        private readonly string _carpeta;
-        private readonly string _ruta;
+        private readonly IRepositorioConfiguracion _repositorio;
+        private readonly string _clave;
 
         public ConfiguracionApp Config { get; } = ConfiguracionApp.Predeterminada();
 
         public event Action? Guardada;
 
-        public string Ruta => _ruta;
+        public string Ruta => _repositorio.Ubicacion;
 
-        public ServicioConfiguracion(string clave, string? carpeta = null)
+        public ServicioConfiguracion(string clave, IRepositorioConfiguracion repositorio)
         {
-            _carpeta = carpeta ?? Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "Cromatico", "Config");
-            _ruta = Path.Combine(_carpeta, clave + ".json");
+            _clave = clave;
+            _repositorio = repositorio;
         }
 
         public static string ClaveParaEmail(string? email)
@@ -34,33 +31,24 @@ namespace Cromatico.Servicios
 
         public string? Cargar()
         {
-            if (!File.Exists(_ruta))
-            {
-                Config.CopiarDesde(ConfiguracionApp.Predeterminada());
-                return null;
-            }
-
             try
             {
-                var json = File.ReadAllText(_ruta);
-                var leida = JsonSerializer.Deserialize<ConfiguracionApp>(json, ConfiguracionApp.OpcionesJson);
-                string motivo = "no tiene datos";
-                if (leida == null || !leida.EsValida(out motivo))
+                var leida = _repositorio.Leer(_clave);
+                if (leida == null)
+                {
+                    Config.CopiarDesde(ConfiguracionApp.Predeterminada());
+                    try { _repositorio.Escribir(_clave, Config); } catch { }
+                    return null;
+                }
+
+                if (!leida.EsValida(out var motivo))
                     return Descartar($"la configuración guardada está incompleta ({motivo})");
 
                 leida.AsegurarPredefinidos();
                 Config.CopiarDesde(leida);
                 return null;
             }
-            catch (JsonException)
-            {
-                return Descartar("la configuración guardada está dañada");
-            }
-            catch (IOException ex)
-            {
-                return Descartar("no se pudo leer la configuración guardada: " + ex.Message);
-            }
-            catch (UnauthorizedAccessException ex)
+            catch (Exception ex)
             {
                 return Descartar("no se pudo leer la configuración guardada: " + ex.Message);
             }
@@ -68,7 +56,6 @@ namespace Cromatico.Servicios
 
         private string Descartar(string motivo)
         {
-            try { File.Copy(_ruta, _ruta + ".danado.bak", overwrite: true); } catch { }
             Config.CopiarDesde(ConfiguracionApp.Predeterminada());
             return $"Se restauró la configuración predeterminada porque {motivo}.";
         }
@@ -86,7 +73,7 @@ namespace Cromatico.Servicios
             {
                 cambio(Config);
                 if (!conservarFecha) Config.UltimaModificacionUtc = DateTime.UtcNow;
-                Escribir();
+                _repositorio.Escribir(_clave, Config);
             }
             catch (Exception ex)
             {
@@ -101,22 +88,13 @@ namespace Cromatico.Servicios
 
         public ResultadoOperacion Guardar()
         {
-            try { Escribir(); }
+            try { _repositorio.Escribir(_clave, Config); }
             catch (Exception ex)
             {
                 return ResultadoOperacion.Error("No se pudo guardar la configuración: " + ex.Message);
             }
             Guardada?.Invoke();
             return ResultadoOperacion.Ok();
-        }
-
-        private void Escribir()
-        {
-            Directory.CreateDirectory(_carpeta);
-            var json = JsonSerializer.Serialize(Config, ConfiguracionApp.OpcionesJson);
-            var tmp = _ruta + ".tmp";
-            File.WriteAllText(tmp, json);
-            File.Move(tmp, _ruta, overwrite: true);
         }
     }
 }
