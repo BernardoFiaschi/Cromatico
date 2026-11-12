@@ -8,6 +8,9 @@
     <None Update="LaminasIshihara\*.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="LaminasSeveridad\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="ImagenesPrueba\prueba.png">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </None>

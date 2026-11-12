@@ -56,7 +56,7 @@ namespace Cromatico.Servicios
                 resultadoDiscriminatorioFinal.deficiencia = deficiencia;
                 resultadoDiscriminatorioFinal.aciertos = Aciertos;
                 int mayor = Math.Max(Aciertos, Math.Max(ErroresRojoProtan, ErroresVerdeDeutan));
-                resultadoDiscriminatorioFinal.confianza = (double)mayor / respuestas.Count;
+                resultadoDiscriminatorioFinal.confianza = (double)mayor / respuestas.Count * 100;
 
                 return resultadoDiscriminatorioFinal;
 

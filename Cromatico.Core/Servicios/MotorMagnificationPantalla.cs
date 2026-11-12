@@ -4,10 +4,11 @@ using Cromatico.Modelos;
 
 namespace Cromatico.Servicios
 {
-    public class MotorMagnificationPantalla : IMotorCorreccion
+    public class MotorMagnificationPantalla : IMotorCorreccion, IDisposable
     {
         private MagnificationNativeMethods.MAGCOLOREFFECT _efectoOriginal;
         private PerfilCorreccion? _perfilActual;
+        private bool _inicializado;
 
         public MotorMagnificationPantalla()
         {
@@ -22,7 +23,10 @@ namespace Cromatico.Servicios
                     throw new InvalidOperationException("No se pudo inicializar Magnification API.");
                 }
 
-                MagnificationNativeMethods.MagGetFullscreenColorEffect(out _efectoOriginal);
+                if (!MagnificationNativeMethods.MagGetFullscreenColorEffect(out _efectoOriginal)
+                    || _efectoOriginal.transform == null || _efectoOriginal.transform.Length != 25)
+                    _efectoOriginal = MagnificationColorAdapter.Convertir(Matriz3.Identidad);
+                _inicializado = true;
             }
             catch (Exception ex)
             {
@@ -51,9 +55,17 @@ namespace Cromatico.Servicios
         }
         public void Restaurar()
         {
+            if (!_inicializado)
+                return;
+            _inicializado = false;
             MagnificationNativeMethods.MagSetFullscreenColorEffect(ref _efectoOriginal);
 
             MagnificationNativeMethods.MagUninitialize();
+        }
+
+        public void Dispose()
+        {
+            Restaurar();
         }
     }
 }

@@ -24,8 +24,13 @@ namespace Cromatico.Modelos
         {
             TipoDeficiencia.Protan => "Protan (rojo)",
             TipoDeficiencia.Deutan => "Deután (verde)",
-            _ => "Tritan (azul)"
+            TipoDeficiencia.Tritan => "Tritan (azul)",
+            TipoDeficiencia.Ninguna => "Sin deficiencia",
+            _ => "Indeterminado"
         };
+
+        public static bool RequiereCorreccion(this TipoDeficiencia tipo)
+            => tipo is TipoDeficiencia.Protan or TipoDeficiencia.Deutan or TipoDeficiencia.Tritan;
 
         public static string Nombre(this EjeCorreccion eje)
             => eje == EjeCorreccion.RojoVerde ? "Rojo / Verde" : "Azul / Amarillo";

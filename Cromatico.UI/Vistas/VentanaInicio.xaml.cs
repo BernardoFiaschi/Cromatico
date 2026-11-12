@@ -119,11 +119,8 @@ namespace Cromatico.Vistas
 
             if (!ctx.Almacen.Config.EvaluacionCompleta)
             {
-                var evaluacion = new VentanaEvaluacion();
-                Application.Current.MainWindow = evaluacion;
-                evaluacion.Show();
-                Close();
-                return;
+                ctx.AvisosIniciales.Add((TipoAviso.Info,
+                    "Todavía no hiciste el test de visión. Lo encontrás en la pestaña Test."));
             }
 
             var principal = new VentanaPrincipal(ctx);

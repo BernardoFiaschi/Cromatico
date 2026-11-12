@@ -62,7 +62,7 @@ namespace Cromatico.Servicios
                 resultadoFinal.aciertos = Aciertos;
                 resultadoFinal.errores = ErroresDaltonicos + ErroresMonocromatica + ErroresOtros;
                 int mayor = Math.Max(Aciertos, Math.Max(ErroresDaltonicos, ErroresMonocromatica));
-                resultadoFinal.confianza = (double)(mayor / respuestas.Count) * 100;
+                resultadoFinal.confianza = (double)mayor / respuestas.Count * 100;
 
                 return resultadoFinal;
             }
@@ -90,6 +90,7 @@ namespace Cromatico.Servicios
             }
             else if (erroresMonocromatica >= umbral && erroresMonocromatica > aciertos)
             {
+                deficiencia = TipoDeficiencia.Indeterminado;
             }
             else if (aciertos >= umbral && aciertos > erroresDaltonicos)
             {

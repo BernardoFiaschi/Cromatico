@@ -159,6 +159,7 @@ namespace Cromatico.Servicios
         {
             Monitor.VentanaCambiada -= AutoPerfil.AlCambiarVentana;
             Monitor.Dispose();
+            (Motor as IDisposable)?.Dispose();
             if (ReferenceEquals(Actual, this)) Actual = null;
         }
     }

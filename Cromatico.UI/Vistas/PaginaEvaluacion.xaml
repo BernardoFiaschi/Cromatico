@@ -1,0 +1,113 @@
+<UserControl
+    x:Class="Cromatico.UI.Vistas.PaginaEvaluacion"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="32,28,32,24">
+
+            <StackPanel
+                x:Name="panelInicio"
+                MaxWidth="700"
+                HorizontalAlignment="Left">
+
+                <TextBlock
+                    Text="Test de visión"
+                    Style="{StaticResource TituloPagina}"/>
+
+                <TextBlock
+                    Style="{StaticResource Subtitulo}"
+                    Margin="0,4,0,18"
+                    Text="Láminas de Ishihara para detectar el tipo de deficiencia y su severidad. Al terminar, el perfil activo se ajusta a tu resultado."/>
+
+                <Border Style="{StaticResource Tarjeta}">
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="txtResultado"
+                            FontSize="15"
+                            TextWrapping="Wrap"/>
+
+                        <Button
+                            x:Name="btnComenzar"
+                            Content="Comenzar test"
+                            Style="{StaticResource BotonPrimario}"
+                            HorizontalAlignment="Left"
+                            Margin="0,16,0,0"
+                            Click="BtnComenzar_Click"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel
+                x:Name="panelTest"
+                Visibility="Collapsed"
+                MaxWidth="700">
+
+                <TextBlock
+                    x:Name="txtNumeroLamina"
+                    Style="{StaticResource TituloPagina}"
+                    Margin="0,0,0,20"/>
+
+                <Border
+                    Style="{StaticResource Tarjeta}"
+                    Padding="12">
+                    <Image
+                        x:Name="imgLamina"
+                        Height="400"
+                        Stretch="Uniform"/>
+                </Border>
+
+                <TextBlock
+                    Text="TU RESPUESTA"
+                    Style="{StaticResource EtiquetaSeccion}"
+                    Margin="0,20,0,6"/>
+
+                <TextBox
+                    x:Name="txtRespuesta"
+                    Margin="0,0,0,20"/>
+
+                <StackPanel
+                    x:Name="panelSeveridad"
+                    Visibility="Collapsed"
+                    Margin="0,0,0,20">
+
+                    <RadioButton
+                        x:Name="rbTriangulo"
+                        Content="Triángulo"
+                        Margin="0,0,0,8"/>
+
+                    <RadioButton
+                        x:Name="rbCuadrado"
+                        Content="Cuadrado"
+                        Margin="0,0,0,8"/>
+
+                    <RadioButton
+                        x:Name="rbCirculo"
+                        Content="Círculo"
+                        Margin="0,0,0,8"/>
+
+                    <RadioButton
+                        x:Name="rbNada"
+                        Content="Nada"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        x:Name="btnSiguiente"
+                        Content="Siguiente"
+                        Style="{StaticResource BotonPrimario}"
+                        Click="BtnSiguiente_Click"/>
+
+                    <Button
+                        x:Name="btnCancelar"
+                        Content="Cancelar test"
+                        Style="{StaticResource BotonFantasma}"
+                        Margin="8,0,0,0"
+                        Click="BtnCancelar_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

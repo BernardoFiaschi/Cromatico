@@ -1,6 +1,7 @@
 using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows;
+using System.Windows.Controls;
 using Cromatico.Modelos;
 using Cromatico.Recursos;
 using Cromatico.Servicios;
@@ -9,7 +10,7 @@ using Cromatico.Vistas;
 namespace Cromatico.UI.Vistas
 {
 
-    public partial class VentanaEvaluacion : Window
+    public partial class PaginaEvaluacion : UserControl
     {
         private int indiceActual;
 
@@ -39,19 +40,81 @@ namespace Cromatico.UI.Vistas
         }
 
 
-        public VentanaEvaluacion()
+        public PaginaEvaluacion()
         {
             InitializeComponent();
-
-            etapaActual = EtapaEvaluacion.Deteccion;
-
-            indiceActual = 0;
 
             respuestas = new List<RespuestaUsuario>();
             laminas = new List<LaminaIshihara>();
             laminasSeveridad = new List<LaminaSeveridad>();
 
+            Loaded += (_, _) => MostrarResultadoGuardado();
+            Unloaded += (_, _) =>
+            {
+                if (panelTest.Visibility == Visibility.Visible)
+                    VolverAlInicioDelTest();
+            };
+        }
+
+        private static void MostrarMensaje(TipoAviso tipo, string mensaje)
+        {
+            var ctx = ContextoApp.Actual;
+            if (ctx == null)
+                return;
+
+            switch (tipo)
+            {
+                case TipoAviso.Error: ctx.Avisos.Error(mensaje); break;
+                case TipoAviso.Advertencia: ctx.Avisos.Advertir(mensaje); break;
+                case TipoAviso.Exito: ctx.Avisos.Exito(mensaje); break;
+                default: ctx.Avisos.Informar(mensaje); break;
+            }
+        }
+
+        private void BtnComenzar_Click(object sender, RoutedEventArgs e)
+        {
+            etapaActual = EtapaEvaluacion.Deteccion;
+
+            indiceActual = 0;
+
+            ContextoApp.Actual?.AutoPerfil.Suspender();
+            panelInicio.Visibility = Visibility.Collapsed;
+            panelTest.Visibility = Visibility.Visible;
+
             CargarDeteccion();
+        }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            VolverAlInicioDelTest();
+        }
+
+        private void VolverAlInicioDelTest()
+        {
+            ContextoApp.Actual?.AutoPerfil.Reanudar();
+            panelTest.Visibility = Visibility.Collapsed;
+            panelInicio.Visibility = Visibility.Visible;
+            MostrarResultadoGuardado();
+        }
+
+        private void MostrarResultadoGuardado()
+        {
+            var config = ContextoApp.Actual?.Almacen.Config;
+            if (config == null)
+                return;
+
+            if (config.EvaluacionCompleta)
+            {
+                txtResultado.Text = config.TipoDetectada == TipoDeficiencia.Ninguna
+                    ? "Último resultado: no se detectó deficiencia visual."
+                    : $"Último resultado: {config.TipoDetectada}, severidad {config.NivelDetectado}.";
+                btnComenzar.Content = "Repetir test";
+            }
+            else
+            {
+                txtResultado.Text = "Todavía no hiciste el test.";
+                btnComenzar.Content = "Comenzar test";
+            }
         }
 
         private void CargarDeteccion()
@@ -105,7 +168,7 @@ namespace Cromatico.UI.Vistas
 
             if (!File.Exists(rutaCompleta))
             {
-                MessageBox.Show($"No se encontró la imagen:\n{rutaCompleta}");
+                MostrarMensaje(TipoAviso.Error, $"No se encontró la imagen: {rutaCompleta}");
 
                 return;
             }
@@ -123,7 +186,7 @@ namespace Cromatico.UI.Vistas
                 string? respuestaUsuario = ObtenerRespuestaSeveridad();
                 if (respuestaUsuario == null)
                 {
-                    MessageBox.Show("Seleccioná una respuesta antes de continuar.");
+                    MostrarMensaje(TipoAviso.Advertencia, "Seleccioná una respuesta antes de continuar.");
 
                     return;
                 }
@@ -182,11 +245,19 @@ namespace Cromatico.UI.Vistas
 
             if (resultadoDeteccion.deficiencia == TipoDeficiencia.Ninguna)
             {
-                MessageBox.Show("No se detectó deficiencia visual.");
-
+                MostrarMensaje(TipoAviso.Info, "No se detectó deficiencia visual.");
+                ContextoApp.Actual?.Almacen.Modificar(c =>
+                {
+                    c.EvaluacionCompleta = true;
+                    c.TipoDetectada = TipoDeficiencia.Ninguna;
+                    c.NivelDetectado = NivelSeveridad.Indeterminada;
+                },
+        "guardar resultado del test");
+                VolverAlInicioDelTest();
+                VentanaPrincipal.Actual?.IrA("inicio");
                 return;
             }
-            MessageBox.Show("Se detectó deficiencia visual.");
+            MostrarMensaje(TipoAviso.Info, "Se detectó deficiencia visual. Seguimos con la siguiente etapa.");
             CargarDiscriminacion();
         }
         private void CargarDiscriminacion()
@@ -211,7 +282,7 @@ namespace Cromatico.UI.Vistas
             EvaluadorDiscriminacionIhihara evaluadorDiscriminacion = new EvaluadorDiscriminacionIhihara();
 
             resultadoDiscriminacion = evaluadorDiscriminacion.evaluarDiscrimincacion(respuestas);
-            MessageBox.Show($"Deficiencia detectada: {resultadoDiscriminacion.deficiencia}");
+            MostrarMensaje(TipoAviso.Info, $"Deficiencia detectada: {resultadoDiscriminacion.deficiencia.Nombre()}");
             CargarSeveridad();
         }
         private void CargarSeveridad()
@@ -264,15 +335,8 @@ namespace Cromatico.UI.Vistas
             },
     "guardar resultado del test");
 
-            var principal = new VentanaPrincipal(ContextoApp.Actual!);
-
-            Application.Current.MainWindow = principal;
-
-            principal.Show();
-
-            principal.IrA("vista");
-
-            Close();
+            VolverAlInicioDelTest();
+            VentanaPrincipal.Actual?.IrA("vista");
         }
     }
 }
