@@ -36,6 +36,18 @@
     <SolidColorBrush x:Key="BrushAdvertencia" Color="{StaticResource ColorAdvertencia}"/>
     <SolidColorBrush x:Key="BrushError" Color="{StaticResource ColorError}"/>
 
+    <Style TargetType="RadioButton">
+        <Setter Property="Foreground" Value="{StaticResource BrushTexto}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0,4"/>
+    </Style>
+    <Style TargetType="CheckBox">
+        <Setter Property="Foreground" Value="{StaticResource BrushTexto}"/>
+    </Style>
+    <Style TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource BrushTexto}"/>
+    </Style>
+
     <LinearGradientBrush x:Key="GradienteEspectro" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="{StaticResource ColorEspectro1}" Offset="0"/>
         <GradientStop Color="{StaticResource ColorEspectro2}" Offset="0.5"/>
